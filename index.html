@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Title</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui"
+    />
+    <style>
+      @-ms-viewport {
+        width: device-width;
+      }
+    </style>
+    <link rel="stylesheet" href="vendor/reset.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="multiple-scenes">
+    <div class="logo">
+      <img
+        src="https://careers.jv-it.com.vn/wp-content/uploads/2018/01/logo.png"
+        alt="logo"
+      />
+    </div>
+    <div id="pano"></div>
+
+    <div id="sceneList">
+      <ul class="scenes">
+        <div style="background-color: rgba(255,255,255,0.9);"><a href="javascript:void(0)" class="scene" style="border: none">
+          <li class="text text-speaker">
+            <img
+              id="speaker"
+              style="width: 30px; height: 30px;background-color: white; border-radius: 50%;"
+              src="img/speaker-off.svg"
+            />
+            <img
+              id="speaker-off"
+              style="width: 30px; height: 30px;background-color: white; border-radius: 50%;"
+              src="img/speaker.svg"
+            />
+          </li>
+        </a>
+        
+        <a href="javascript:void(0)" class="scene">
+          <li
+            class="text text-speaker"
+            style="display: flex; justify-content: center ;margin: 0 0 10px 0;"
+          >
+            <img
+              src="https://careers.jv-it.com.vn/wp-content/uploads/2018/01/logo.png" style="width: 150px;"
+            /></li
+        ></a></div>
+        <hr style="margin-top: 0;">
+        <a href="javascript:void(0)"  class="scene" style="margin: 40px 0 0 0" data-id="1-ho-tri-an-1">
+          <li class="text">
+            <img class="avatar" src="./img/avatar-1.png" alt="" /><span
+              >Ho-Tri-An 1</span
+            >
+          </li>
+        </a>
+        <a href="javascript:void(0)" class="scene" data-id="2-pic-1">
+          <li class="text">
+            <img class="avatar" src="./img/avatar-2.png" alt="" /><span
+              >PIC1</span
+            >
+          </li>
+        </a>
+        <a href="javascript:void(0)" class="scene" data-id="7-pic3-1">
+          <li class="text">
+            <img class="avatar" src="./img/avatar-3.png" alt="" /><span
+              >PIC2</span
+            >
+          </li>
+        </a>
+        <hr>
+        <!-- <div style="display: flex;justify-content: center;align-items: center;"><div style="width: 305px; height: 2px;background-color: #29394A; margin-top: 10px;"></div></div> -->
+        
+        <a href="javascript:void(0)" class="scene" style="margin:0px 0 0px 0 ;" id="show-video">
+          <li class="text"> <img class="avatar" src="./img/video-img.svg" alt="" /><span
+            >Video</span
+          >
+        </li></li>
+        </a>
+        <a href="javascript:void(0)" class="scene" style="margin:0px 0 0px 0 ;" id="show-video">
+          <li class="text"> <img class="avatar" src="./img/audio.svg" alt="" /><span
+            >Audio</span
+          >
+        </li>
+        </a>
+        
+      </ul>
+
+      <a href="javascript:void(0)" id="sceneListToggle" style="background-color: white;border-radius: 0 15px 15px 0;">
+        <img class="icon off" src="img/arrow-left.svg" />
+        <img class="icon on" src="img/arrow-rigth.svg" />
+      </a>
+    </div>
+
+    <a href="javascript:void(0)" id="autorotateToggle">
+      <img class="icon off" src="img/play.png" />
+      <img class="icon on" src="img/pause.png" />
+    </a>
+
+    <a href="javascript:void(0)" id="fullscreenToggle">
+      <img class="icon off" src="img/fullscreen.png" />
+      <img class="icon on" src="img/windowed.png" />
+    </a>
+
+    <!-- <a href="javascript:void(0)" id="sceneListToggle">
+      <img class="icon off" src="img/expand.png" />
+      <img class="icon on" src="img/collapse.png" />
+    </a> -->
+
+    <a
+      href="javascript:void(0)"
+      id="viewUp"
+      class="viewControlButton viewControlButton-1"
+    >
+      <img class="icon" src="img/up.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewDown"
+      class="viewControlButton viewControlButton-2"
+    >
+      <img class="icon" src="img/down.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewLeft"
+      class="viewControlButton viewControlButton-3"
+    >
+      <img class="icon" src="img/left.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewRight"
+      class="viewControlButton viewControlButton-4"
+    >
+      <img class="icon" src="img/right.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewIn"
+      class="viewControlButton viewControlButton-5"
+    >
+      <img class="icon" src="img/plus.png" />
+    </a>
+    <a
+      href="javascript:void(0)"
+      id="viewOut"
+      class="viewControlButton viewControlButton-6"
+    >
+      <img class="icon" src="img/minus.png" />
+    </a>
+    <ul
+      id="listImgs"
+      class="show-img"
+      style="position: fixed; bottom: 0px; left: 0"
+    >
+      <li onclick="document.getElementsByClassName('hotspot')[0].click();">
+        <img src="img/3-1.png" alt="" />
+      </li>
+      <li onclick="document.getElementsByClassName('hotspot')[1].click();">
+        <img src="img/p-1.png" alt="" />
+      </li>
+    </ul>
+    <div
+      id="video-module"
+      class="showHideVideo"
+      style="
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+    >
+      <iframe
+        width="727"
+        height="409"
+        src="https://www.youtube.com/embed/T1xzr_iEy_I"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <img
+        src="./img/close.png"
+        alt="close"
+        style="
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 30px;
+          height: 30px;
+          cursor: pointer;
+        "
+        id="close-video"
+      />
+    </div>
+
+    <audio
+      id="player"
+      src="./audio/horse.ogv"
+      loop="true"
+      autoplay="true"
+    ></audio>
+
+    <script src="vendor/es5-shim.js"></script>
+    <script src="vendor/eventShim.js"></script>
+    <script src="vendor/classList.js"></script>
+    <script src="vendor/requestAnimationFrame.js"></script>
+    <script src="vendor/screenfull.min.js"></script>
+    <script src="vendor/bowser.min.js"></script>
+    <script src="vendor/marzipano.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
+<!-- pc1 pic3 pic4 pic 6 pic5 pic 2 pic 5,cc -->
